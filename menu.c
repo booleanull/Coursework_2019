@@ -126,26 +126,67 @@ void showSearchMenu(List *list) {
 
     if (id == 0) {
         id = enterInt("Write id of item: ");
+        puts("");
         getSearchListById(list, id);
     } else if (id == 1) {
         char *name = enterString("Write name of item: ");
+        puts("");
         getSearchListByName(list, name);
     } else if (id == 2) {
         char *type = enterString("Write type of item: ");
+        puts("");
         getSearchListByType(list, type);
     } else if (id == 3) {
         char *description = enterString("Write description of item: ");
+        puts("");
         getSearchListByDescription(list, description);
     } else if (id == 4) {
         int count = enterInt("Write count of items: ");
+        puts("");
         getSearchListByCount(list, count);
     } else if (id == 5) {
         double price = enterDouble("Write price of item: ");
+        puts("");
         getSearchListByPrice(list, price);
     } else if (id == 6) {
         double stars = enterDouble("Write stars of item: ");
+        puts("");
         getSearchListByStars(list, stars);
     }
+    printf("Write anything to continue: ");
+    getch();
+}
+
+void showSortMenu(List *list) {
+    int id = 0;
+    system(CLEAR);
+    puts("================= [Sort] ====================");
+    puts("0. ID");
+    puts("1. Name");
+    puts("2. Type");
+    puts("3. Description");
+    puts("4. Count");
+    puts("5. Price");
+    puts("6. Stars");
+    puts("=============================================");
+    id = enterInt("Write your field: ");
+
+    if (id == 0) {
+        sortById(list);
+    } else if (id == 1) {
+        sortByName(list);
+    } else if (id == 2) {
+        sortByType(list);
+    } else if (id == 3) {
+        sortByDescription(list);
+    } else if (id == 4) {
+        sortByCount(list);
+    } else if (id == 5) {
+        sortByPrice(list);
+    } else if (id == 6) {
+        sortByStars(list);
+    }
+    puts("List was sorted");
     printf("Write anything to continue: ");
     getch();
 }
@@ -179,37 +220,7 @@ void showMenu(List *list) {
         } else if (menu == 5) {
             showSearchMenu(list);
         } else if (menu == 6) {
-            int id = 0;
-            system(CLEAR);
-            puts("================= [Sort] ====================");
-            puts("0. ID");
-            puts("1. Name");
-            puts("2. Type");
-            puts("3. Description");
-            puts("4. Count");
-            puts("5. Price");
-            puts("6. Stars");
-            puts("=============================================");
-            id = enterInt("Write your field: ");
-
-            if (id == 0) {
-                sortById(list);
-            } else if (id == 1) {
-                sortByName(list);
-            } else if (id == 2) {
-                sortByType(list);
-            } else if (id == 3) {
-                sortByDescription(list);
-            } else if (id == 4) {
-                sortByCount(list);
-            } else if (id == 5) {
-                sortByPrice(list);
-            } else if (id == 6) {
-                sortByStars(list);
-            }
-            puts("List was sorted");
-            printf("Write anything to continue: ");
-            getch();
+            showSortMenu(list);
         }
     }
 }

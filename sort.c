@@ -138,7 +138,7 @@ void sortByCount(List *list) {
 
         while (shopItem->next != NULL) {
             shopItemNext = (ShopItem *) shopItem->next;
-            if (shopItem->id > shopItemNext->id) {
+            if (shopItem->count > shopItemNext->count) {
                 swap(shopItem, (ShopItem *) shopItem->next);
                 swapped = 1;
             }
@@ -162,7 +162,7 @@ void sortByPrice(List *list) {
 
         while (shopItem->next != NULL) {
             shopItemNext = (ShopItem *) shopItem->next;
-            if (shopItem->id > shopItemNext->id) {
+            if (shopItem->price > shopItemNext->price) {
                 swap(shopItem, (ShopItem *) shopItem->next);
                 swapped = 1;
             }
@@ -186,7 +186,7 @@ void sortByStars(List *list) {
 
         while (shopItem->next != NULL) {
             shopItemNext = (ShopItem *) shopItem->next;
-            if (shopItem->id > shopItemNext->id) {
+            if (shopItem->stars > shopItemNext->stars) {
                 swap(shopItem, (ShopItem *) shopItem->next);
                 swapped = 1;
             }
