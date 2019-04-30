@@ -25,21 +25,24 @@ void readListFromFile(FILE *file, List *list) {
         while (fgets(scanner, 1024, file)) {
             ShopItem *item = malloc(sizeof(ShopItem));
             int count = 0;
-            char *words = strtok(scanner, ";,");
+            char *words = strtok(scanner, ";");
             while (words != NULL) {
                 if(count == 0) {
                     item->name = initStringField(words);
                 }
                 else if(count == 1) {
-                    item->description = initStringField(words);
+                    item->type = initStringField(words);
                 }
                 else if(count == 2) {
-                    item->count = atoi(words);
+                    item->description = initStringField(words);
                 }
                 else if(count == 3) {
-                    item->price = atof(words);
+                    item->count = atoi(words);
                 }
                 else if(count == 4) {
+                    item->price = atof(words);
+                }
+                else if(count == 5) {
                     item->stars = atof(words);
                 }
 
@@ -58,7 +61,7 @@ void saveListToFile(FILE *file, List *list) {
         return;
 
     while (current != NULL) {
-        fprintf(file, "%s;%s;%d;%lf;%lf\n", current->name, current->description, current->count, current->price, current->stars);
+        fprintf(file, "%s;%s;%s;%d;%lf;%lf\n", current->name, current->type, current->description, current->count, current->price, current->stars);
         current = (ShopItem *) current->next;
     }
 }

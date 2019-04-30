@@ -13,7 +13,7 @@ List *makeList() {
     return list;
 }
 
-void add(ShopItem* item, List *list) {
+void add(ShopItem *item, List *list) {
     ShopItem *current = NULL;
     item->next = NULL;
     item->id = 0;
@@ -61,11 +61,14 @@ int delete(int id, List *list) {
 
 void display(List *list) {
     ShopItem *current = list->head;
-    if (current == NULL)
+    if (current == NULL) {
+        printf("List is empty\n");
         return;
+    }
 
     while (current != NULL) {
-        printf("%d. %s\nDescription: %s\nCount: %d\nPrice: %lf\nStars: %lf\n", current->id, current->name, current->description, current->count, current->price, current->stars);
+        printf("%d. Title: %s\nType: %s\nDescription: %s\nCount: %d\nPrice: %lf\nStars: %lf\n\n", current->id,
+               current->name, current->type, current->description, current->count, current->price, current->stars);
         current = (ShopItem *) current->next;
     }
 }

@@ -8,6 +8,7 @@
 #define FILENAME "store.csv"
 
 int main() {
+    // Read data from file
     FILE *readFile = fopen(FILENAME, "r");
     List *list = makeList();
     readListFromFile(readFile, list);
@@ -15,6 +16,7 @@ int main() {
 
     showMenu(list);
 
+    // Save data to file
     FILE *writeFile = fopen(FILENAME, "w");
     saveListToFile(writeFile, list);
     destroy(list);
