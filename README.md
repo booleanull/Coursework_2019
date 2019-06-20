@@ -25,4 +25,4 @@ The program should be implemented simple menu. Program execution must be repeate
 * 6: Sort file by parameter
 * 7: Exit
 ## License
-[MIT](https://github.com/booleanull/Coursework_2019/blob/master/LICENSE)
+[GNU General Public License v2.0](https://github.com/booleanull/Coursework_2019/blob/master/LICENSE)
